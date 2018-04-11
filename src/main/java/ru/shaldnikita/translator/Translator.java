@@ -1,4 +1,4 @@
-package ru.testwork.yandextranslateapp;
+package ru.shaldnikita.translator;
 
 import java.io.*;
 import java.util.*;
@@ -13,7 +13,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 
 public class Translator {
 
@@ -30,6 +29,7 @@ public class Translator {
     }
 
     public void run() throws IOException {
+        System.out.println("Type anything...");
         try (Scanner in = new Scanner(System.in)) {
             String toTranslate = in.nextLine();
             String translatedText = doTranslate(toTranslate);
