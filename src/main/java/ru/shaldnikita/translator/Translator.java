@@ -25,13 +25,22 @@ public class Translator {
     }
 
     public Translator(String key) {
-        API_KEY=key;
+        API_KEY = key;
     }
 
     public void run() throws IOException {
         System.out.println("Type anything...");
+
         try (Scanner in = new Scanner(System.in)) {
             String toTranslate = in.nextLine();
+
+            while (true) {
+                if (toTranslate.isEmpty()) {
+                    System.out.println("Cant translate empty line!");
+                    toTranslate = in.nextLine();
+                } else
+                    break;
+            }
             String translatedText = doTranslate(toTranslate);
 
             System.out.println(translatedText);
